@@ -17,10 +17,7 @@ def main():
     if answer == 'Yes':
         newFlop = displayFlop()
         flop = newFlop
-        checkforPair(flop)
-        checkTwoPair(flop)
-        checkThreeOfAKind(flop)
-        checkFourOfAKind(flop)
+        discardRedraw(flop)
     else:
         sys.exit()
 
@@ -46,6 +43,23 @@ def removeOneZero(cardList):
         cardList.append('10')
     else:
         pass
+
+def discardRedraw(flop):
+    decision = input('Would you like to discard your hand and draw a new one? ')
+    if decision == 'y':
+        flop.clear()
+        displayFlop()
+        checkforPair(flop)
+        checkTwoPair(flop)
+        checkThreeOfAKind(flop)
+        checkFourOfAKind(flop)
+    else:
+        checkforPair(flop)
+        checkTwoPair(flop)
+        checkThreeOfAKind(flop)
+        checkFourOfAKind(flop)
+
+
 
 
 def displayFlop():
