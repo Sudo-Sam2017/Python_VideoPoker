@@ -39,20 +39,17 @@ def removeOneZero(cardList):
         pass
     
     if '1' in cardList:
-        cardList.remove('1')
-        cardList.append('10')
+        index = cardList.index('1')
+        cardList.pop(index)
+        cardList.insert(index, '10')
     else:
         pass
 
 def discardRedraw(flop):
-    decision = input('Would you like to discard your hand and draw a new one? ')
+    decision = input('Would you like to hold any of your cards? ')
     if decision == 'y':
-        flop.clear()
-        displayFlop()
-        checkforPair(flop)
-        checkTwoPair(flop)
-        checkThreeOfAKind(flop)
-        checkFourOfAKind(flop)
+        heldCard = int(input("Which card would you like to hold? (Enter 0 through 4) "))
+        print(flop[heldCard])
     else:
         checkforPair(flop)
         checkTwoPair(flop)
