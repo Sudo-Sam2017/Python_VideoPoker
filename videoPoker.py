@@ -46,10 +46,12 @@ def removeOneZero(cardList):
         pass
 
 def discardRedraw(flop):
-    decision = input('Would you like to hold any of your cards? ')
+    playerHand = []
+    playerHand = flop
+    decision = input('Would you like to discard any of your cards? ')
     if decision == 'y':
-        heldCard = int(input("Which card would you like to hold? (Enter 0 through 4) "))
-        print(flop[heldCard])
+        discardCard = int(input("Which card would you like to discard? (Enter 0 through 4) "))
+        print(playerHand[0][discardCard], playerHand[1][discardCard])
     else:
         checkforPair(flop)
         checkTwoPair(flop)
@@ -72,7 +74,8 @@ def displayFlop():
         flop += rankNum
         suitList += suitType
      removeOneZero(flop)
-     return flop
+     print(suitList)
+     return flop, suitList
 
 
 def checkforPair(flop):
